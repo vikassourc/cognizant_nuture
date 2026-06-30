@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Spring Application Context - Exercise 2: Dependency Injection
+  =============================================================
+  Demonstrates both Constructor Injection and Setter Injection.
+
+  Beans:
+    bookRepository         - shared BookRepositoryImpl (singleton)
+    bookServiceConstructor - uses constructor-arg for DI
+    bookServiceSetter      - uses property (setter) for DI
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Shared repository bean - singleton by default -->
+    <bean id="bookRepository"
+          class="com.cognizant.LibraryManagement.repository.BookRepositoryImpl"/>
+
+    <!--
+        Constructor Injection:
+        Spring calls BookServiceImplConstructor(BookRepository) passing
+        the bookRepository bean as the argument.
+        XML: <constructor-arg ref="beanId"/>
+    -->
+    <bean id="bookServiceConstructor"
+          class="com.cognizant.LibraryManagement.service.BookServiceImplConstructor">
+        <constructor-arg ref="bookRepository"/>
+    </bean>
+
+    <!--
+        Setter Injection:
+        Spring calls BookServiceImplSetter.setBookRepository(bookRepository)
+        after instantiating the bean with the no-arg constructor.
+        XML: <property name="propertyName" ref="beanId"/>
+    -->
+    <bean id="bookServiceSetter"
+          class="com.cognizant.LibraryManagement.service.BookServiceImplSetter">
+        <property name="bookRepository" ref="bookRepository"/>
+    </bean>
+
+</beans>

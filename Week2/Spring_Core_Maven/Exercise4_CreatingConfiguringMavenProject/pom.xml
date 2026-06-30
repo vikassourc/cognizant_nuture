@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Maven Project Object Model (POM) - Exercise 4
+  ===============================================
+  This POM configures a Maven project demonstrating:
+    1. Standard project structure
+    2. Dependency management with Spring 5.3.39
+    3. JUnit 4 for testing
+    4. Java 11 compilation
+    5. Annotation-based Spring configuration
+
+  Maven Lifecycle Phases:
+    mvn compile  - Compiles Java source files
+    mvn test     - Runs unit tests
+    mvn package  - Creates the JAR file
+    mvn install  - Installs JAR into local repository
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- POM model version - always 4.0.0 for Maven 2+ -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- =====================================================
+         PROJECT COORDINATES
+         The GAV (GroupId:ArtifactId:Version) uniquely
+         identifies this project in the Maven repository.
+         ===================================================== -->
+
+    <!-- GroupId: reverse domain name of the organization -->
+    <groupId>com.cognizant</groupId>
+
+    <!-- ArtifactId: name of the built artifact (JAR) -->
+    <artifactId>library-management</artifactId>
+
+    <!-- Version: use SNAPSHOT for development builds -->
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- Packaging: jar = standard Java archive -->
+    <packaging>jar</packaging>
+
+    <!-- Human-readable project name and description -->
+    <name>Library Management System</name>
+    <description>
+        Exercise 4: Creating and Configuring a Maven Project.
+        Demonstrates annotation-based Spring configuration with
+        @Component, @Service, @Repository, @Autowired, and @Configuration.
+    </description>
+
+    <!-- =====================================================
+         GLOBAL PROPERTIES
+         Define reusable values referenced with ${property.name}
+         ===================================================== -->
+    <properties>
+        <!-- Java source and bytecode compatibility version -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <!-- Spring Framework version - used in all Spring dependencies -->
+        <spring.version>5.3.39</spring.version>
+
+        <!-- Ensure consistent cross-platform builds -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <!-- =====================================================
+         DEPENDENCIES
+         Maven downloads these from Maven Central Repository.
+         ===================================================== -->
+    <dependencies>
+
+        <!-- -----------------------------------------------
+             Spring Context
+             Provides: ApplicationContext, @Component scanning,
+             @Configuration, @Bean, and AOP support.
+             ----------------------------------------------- -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- -----------------------------------------------
+             Spring Core
+             Provides: Core utilities, type conversion,
+             and the BeanFactory foundation.
+             ----------------------------------------------- -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- -----------------------------------------------
+             Spring Beans
+             Provides: Bean definitions, factory beans,
+             and XML bean loading infrastructure.
+             ----------------------------------------------- -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- -----------------------------------------------
+             JUnit 4
+             Scope: test - only on the test classpath.
+             Used for writing and running unit tests.
+             ----------------------------------------------- -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- =====================================================
+         BUILD CONFIGURATION
+         ===================================================== -->
+    <build>
+        <plugins>
+
+            <!-- -----------------------------------------------
+                 Maven Compiler Plugin
+                 Controls how Maven compiles Java source code.
+                 We specify Java 11 for source and target.
+                 ----------------------------------------------- -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <!-- Source compatibility: Java 11 features allowed -->
+                    <source>11</source>
+                    <!-- Target JVM bytecode version -->
+                    <target>11</target>
+                    <!-- Encoding for source files -->
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

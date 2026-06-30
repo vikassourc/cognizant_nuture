@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Spring Application Context Configuration - Exercise 1
+  ======================================================
+  This XML file configures the Spring IoC container for the
+  Library Management System.
+
+  Beans defined here:
+    1. bookRepository - BookRepositoryImpl (data access layer)
+    2. bookService    - BookServiceImpl (business logic layer)
+
+  Dependency Injection:
+    bookRepository is injected into bookService via setter injection
+    using the <property> element.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Bean: bookRepository
+        Class: BookRepositoryImpl
+        Scope: singleton (default)
+        Purpose: Provides in-memory data access for Book entities.
+                 No dependencies are injected into this bean.
+    -->
+    <bean id="bookRepository"
+          class="com.cognizant.LibraryManagement.repository.BookRepositoryImpl"/>
+
+    <!--
+        Bean: bookService
+        Class: BookServiceImpl
+        Scope: singleton (default)
+        Purpose: Business logic layer for library operations.
+
+        Setter Injection:
+          The <property> element instructs Spring to call the
+          setBookRepository() method on BookServiceImpl, passing
+          the 'bookRepository' bean as the argument.
+    -->
+    <bean id="bookService"
+          class="com.cognizant.LibraryManagement.service.BookServiceImpl">
+        <property name="bookRepository" ref="bookRepository"/>
+    </bean>
+
+</beans>
