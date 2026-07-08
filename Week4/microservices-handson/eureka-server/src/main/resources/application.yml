@@ -1,0 +1,37 @@
+server:
+  port: 8761                        # Standard Eureka port
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # This is the Eureka SERVER itself – it should NOT register with itself
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    # Wait time before removing unhealthy instances (ms)
+    eviction-interval-timer-in-ms: 10000
+    # Enable self-preservation mode (false for dev)
+    enable-self-preservation: false
+    renewal-percent-threshold: 0.85
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.cognizant.eurekaserver: DEBUG
+    com.netflix.eureka: INFO
+    com.netflix.discovery: INFO

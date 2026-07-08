@@ -255,11 +255,99 @@ java SingletonPatternDemo
 
 ---
 
+## 🗂️ Week 4 – Microservices with Spring Boot 3 & Spring Cloud
+
+### 🏗️ Architecture
+
+```
+Client
+  │
+  ▼
+┌─────────────────────────────────────────┐
+│  API Gateway  (port 8080)               │
+│  Spring Cloud Gateway + Load Balancer   │
+└──────────────┬──────────────────────────┘
+               │  Service discovery via Eureka
+     ┌─────────┴──────────┐
+     ▼                    ▼
+┌──────────────┐    ┌──────────────┐
+│Account Svc   │    │  Loan Svc    │
+│ (port 8081)  │    │ (port 8082)  │
+│  H2 + JPA    │    │  H2 + JPA    │
+└──────────────┘    └──────────────┘
+          │                │
+          └────────┬───────┘
+                   ▼
+        ┌──────────────────────┐
+        │  Eureka Server       │
+        │  (port 8761)         │
+        │  Service Registry    │
+        └──────────────────────┘
+```
+
+### 📦 Microservices (Exercise 2)
+
+| Service | Port | Key File | Purpose |
+|---------|------|----------|---------|
+| **eureka-server** | 8761 | [EurekaServerApplication.java](Week4/microservices-handson/eureka-server/src/main/java/com/cognizant/eurekaserver/EurekaServerApplication.java) | Service registry & discovery |
+| **account-service** | 8081 | [AccountController.java](Week4/microservices-handson/account-service/src/main/java/com/cognizant/accountservice/controller/AccountController.java) | Bank account CRUD microservice |
+| **loan-service** | 8082 | [LoanController.java](Week4/microservices-handson/loan-service/src/main/java/com/cognizant/loanservice/controller/LoanController.java) | Loan management microservice |
+| **api-gateway** | 8080 | [application.yml](Week4/microservices-handson/api-gateway/src/main/resources/application.yml) | Single entry point, routes + LB |
+
+### 🌐 API Gateway Routes
+
+| Gateway URL | Routes To | Description |
+|-------------|-----------|-------------|
+| `GET  /account-service/api/accounts` | account-service | All accounts |
+| `GET  /account-service/api/accounts/{id}` | account-service | Account by ID |
+| `GET  /account-service/api/accounts/customer/{id}` | account-service | Accounts by customer |
+| `POST /account-service/api/accounts` | account-service | Create account |
+| `GET  /loan-service/api/loans` | loan-service | All loans |
+| `GET  /loan-service/api/loans/customer/{id}` | loan-service | Loans by customer |
+| `POST /loan-service/api/loans` | loan-service | Apply for loan |
+| `PATCH /loan-service/api/loans/{id}/status` | loan-service | Update loan status |
+
+**Key Concepts Covered:**
+- `@EnableEurekaServer` – Eureka service registry
+- `@EnableDiscoveryClient` – microservice registration with Eureka
+- Spring Cloud Gateway routing with `lb://` (load-balanced URIs)
+- `StripPrefix` filter to remove gateway prefix before forwarding
+- `GlobalFilter` – custom request/response logging filter
+- Spring Data JPA with H2 in-memory DB per microservice
+- Service-level isolation (separate DB per service)
+
+### 🛠️ How to Run (Week 4)
+```bash
+# Step 1 – Start Eureka Server FIRST
+cd Week4/microservices-handson/eureka-server
+mvn spring-boot:run
+# Dashboard: http://localhost:8761
+
+# Step 2 – Start Account Service
+cd Week4/microservices-handson/account-service
+mvn spring-boot:run
+
+# Step 3 – Start Loan Service
+cd Week4/microservices-handson/loan-service
+mvn spring-boot:run
+
+# Step 4 – Start API Gateway
+cd Week4/microservices-handson/api-gateway
+mvn spring-boot:run
+
+# Test via Gateway:
+curl http://localhost:8080/account-service/api/accounts
+curl http://localhost:8080/loan-service/api/loans
+curl http://localhost:8080/loan-service/api/loans/customer/1
+```
+
+---
+
 ## 📌 Program Details
 
-- **Skills Covered:** Design Patterns, Data Structures & Algorithms, PL/SQL, Spring Core, Spring Data JPA, Spring REST, JWT Security
-- **Language:** Java 17 (Spring Boot 3), Oracle PL/SQL
-- **Paradigms:** OOP, REST, IoC, Stateless Authentication
+- **Skills Covered:** Design Patterns, Data Structures & Algorithms, PL/SQL, Spring Core, Spring Data JPA, Spring REST, JWT Security, Microservices, Spring Cloud
+- **Language:** Java 17 (Spring Boot 3 + Spring Cloud 2023), Oracle PL/SQL
+- **Paradigms:** OOP, REST, IoC, Stateless Authentication, Microservices Architecture
 
 ---
 
