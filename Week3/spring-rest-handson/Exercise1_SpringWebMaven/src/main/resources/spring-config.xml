@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Week 3 – Exercise 1 (Day 26)
+    Task: Spring Core – Load Country from Spring Configuration XML
+
+    Spring XML bean configuration file.
+    Demonstrates classic Spring IoC container wiring using XML.
+    Loaded with: ClassPathXmlApplicationContext("spring-config.xml")
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ─── Country beans – wired via setter injection ──────────────────── -->
+
+    <bean id="india" class="com.cognizant.springrest.model.Country">
+        <property name="code"       value="IN"/>
+        <property name="name"       value="India"/>
+        <property name="capital"    value="New Delhi"/>
+        <property name="population" value="1428627663"/>
+    </bean>
+
+    <bean id="usa" class="com.cognizant.springrest.model.Country">
+        <property name="code"       value="US"/>
+        <property name="name"       value="United States"/>
+        <property name="capital"    value="Washington D.C."/>
+        <property name="population" value="331893745"/>
+    </bean>
+
+    <bean id="uk" class="com.cognizant.springrest.model.Country">
+        <property name="code"       value="GB"/>
+        <property name="name"       value="United Kingdom"/>
+        <property name="capital"    value="London"/>
+        <property name="population" value="67215293"/>
+    </bean>
+
+    <bean id="australia" class="com.cognizant.springrest.model.Country">
+        <property name="code"       value="AU"/>
+        <property name="name"       value="Australia"/>
+        <property name="capital"    value="Canberra"/>
+        <property name="population" value="25921000"/>
+    </bean>
+
+    <bean id="canada" class="com.cognizant.springrest.model.Country">
+        <property name="code"       value="CA"/>
+        <property name="name"       value="Canada"/>
+        <property name="capital"    value="Ottawa"/>
+        <property name="population" value="38246108"/>
+    </bean>
+
+</beans>
