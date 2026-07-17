@@ -1,0 +1,43 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 400px;
+}
+
+.heading {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.label {
+  padding: 10px;
+  font-weight: bold;
+  color: #555;
+  width: 50%;
+}
+
+.value {
+  padding: 10px;
+  color: #2c3e50;
+}
