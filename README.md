@@ -34,12 +34,15 @@ cognizant_nuture/
 │   └── Spring_Data_JPA/
 │       ├── Exercise1_SpringDataJPA_QuickExample/
 │       └── Exercise2_JPA_Hibernate_SpringDataJPA_Differences/
-└── Week3/
-    ├── spring-rest-handson/
-    │   ├── Exercise1_SpringWebMaven/          ← Days 25 & 26
-    │   └── Exercise2_RESTfulWebService/       ← Days 27, 28 & 29
-    └── jwt-handson/
-        └── Exercise5_JWTAuthentication/       ← Day 30
+├── Week3/
+│   ├── spring-rest-handson/
+│   │   ├── Exercise1_SpringWebMaven/          ← Days 25 & 26
+│   │   └── Exercise2_RESTfulWebService/       ← Days 27, 28 & 29
+│   └── jwt-handson/
+│       └── Exercise5_JWTAuthentication/       ← Day 30
+└── Week5/
+    └── react-handson/
+        └── myfirstreact/                      ← ReactJS Part 1 – Exercise 1
 ```
 
 ---
@@ -343,11 +346,55 @@ curl http://localhost:8080/loan-service/api/loans/customer/1
 
 ---
 
+## 🗂️ Week 5 – ReactJS Part 1
+
+### ⚛️ React Hands-On (react-handson)
+
+#### Exercise 1 – Create Your First React App (myfirstreact)
+
+**Objectives:**
+- Define SPA (Single-Page Application) and its benefits
+- Understand how React works and its Virtual DOM
+- Identify differences between SPA and MPA
+- Explain Pros & Cons of Single-Page Applications
+- Set up a React development environment
+- Use `create-react-app` to scaffold a project
+
+| File | Purpose |
+|------|---------|
+| [App.js](Week5/react-handson/myfirstreact/src/App.js) | Main React component – renders welcome heading |
+| [index.js](Week5/react-handson/myfirstreact/src/index.js) | React entry point – mounts App to DOM |
+| [App.css](Week5/react-handson/myfirstreact/src/App.css) | Component-level styles |
+
+**Key Concepts Covered:**
+- `create-react-app` project scaffolding
+- JSX syntax and React components
+- Single-Page Application (SPA) architecture
+- Virtual DOM concept
+- React's unidirectional data flow
+- `npm start` development server
+
+### 🛠️ How to Run (Week 5)
+```bash
+# Navigate to the myfirstreact app
+cd Week5/react-handson/myfirstreact
+
+# Install dependencies (if not already installed)
+npm install
+
+# Start the development server
+npm start
+# App runs on: http://localhost:3000
+# Displays: "Welcome to the first session of React"
+```
+
+---
+
 ## 📌 Program Details
 
-- **Skills Covered:** Design Patterns, Data Structures & Algorithms, PL/SQL, Spring Core, Spring Data JPA, Spring REST, JWT Security, Microservices, Spring Cloud
-- **Language:** Java 17 (Spring Boot 3 + Spring Cloud 2023), Oracle PL/SQL
-- **Paradigms:** OOP, REST, IoC, Stateless Authentication, Microservices Architecture
+- **Skills Covered:** Design Patterns, Data Structures & Algorithms, PL/SQL, Spring Core, Spring Data JPA, Spring REST, JWT Security, Microservices, Spring Cloud, ReactJS
+- **Language:** Java 17 (Spring Boot 3 + Spring Cloud 2023), Oracle PL/SQL, JavaScript (React 18)
+- **Paradigms:** OOP, REST, IoC, Stateless Authentication, Microservices Architecture, SPA (Single-Page Application)
 
 ---
 
