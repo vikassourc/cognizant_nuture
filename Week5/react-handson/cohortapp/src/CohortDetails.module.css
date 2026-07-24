@@ -1,0 +1,15 @@
+/* Step 6: Define .box class with specified properties */
+.box {
+  width: 300px;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  vertical-align: top;
+}
+
+/* Step 7: Tag selector for <dt> element - font weight 500 */
+dt {
+  font-weight: 500;
+}

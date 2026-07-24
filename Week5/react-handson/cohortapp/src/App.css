@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.App {
+  border: 1px solid #ccc;
+  padding: 20px;
+  display: inline-block;
+  min-width: 600px;
+}
+
+.App h2 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.cohorts-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+/* dl/dd default browser reset for clean look */
+dl {
+  margin: 0;
+}
+
+dd {
+  margin-left: 20px;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+dt {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
