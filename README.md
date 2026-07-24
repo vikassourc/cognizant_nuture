@@ -1,8 +1,8 @@
 # 🎓 Cognizant Digital Nurture – Java FSE Program
 
-> **Trainee:** Vikas Srivastav  
-> **Program:** Cognizant Digital Nurture – Full Stack Engineering (Java)  
-> **Duration:** 5 Weeks  
+> **Trainee:** Vikas Srivastav
+> **Program:** Cognizant Digital Nurture – Full Stack Engineering (Java)
+> **Duration:** 6 Weeks
 
 ---
 
@@ -13,36 +13,35 @@ cognizant_nuture/
 ├── Week1/
 │   ├── Design_Patterns_and_Principles/
 │   │   ├── Exercise1_SingletonPattern/
-│   │   │   └── SingletonPatternDemo.java
 │   │   └── Exercise2_FactoryMethodPattern/
-│   │       └── FactoryMethodPatternDemo.java
 │   ├── Algorithms_Data_Structure/
 │   │   ├── Exercise2_EcommercePlatformSearch/
-│   │   │   └── EcommercePlatformSearch.java
 │   │   └── Exercise7_FinancialForecasting/
-│   │       └── FinancialForecasting.java
 │   └── PLSQL_Exercises/
 │       ├── Exercise1_ControlStructures/
-│       │   └── ControlStructures.sql
 │       └── Exercise3_StoredProcedures/
-│           └── StoredProcedures.sql
 ├── Week2/
 │   ├── Spring_Core_Maven/
-│   │   ├── Exercise1_ConfiguringBasicSpringApp/
-│   │   ├── Exercise2_ImplementingDependencyInjection/
-│   │   └── Exercise4_CreatingConfiguringMavenProject/
 │   └── Spring_Data_JPA/
-│       ├── Exercise1_SpringDataJPA_QuickExample/
-│       └── Exercise2_JPA_Hibernate_SpringDataJPA_Differences/
 ├── Week3/
 │   ├── spring-rest-handson/
-│   │   ├── Exercise1_SpringWebMaven/          ← Days 25 & 26
-│   │   └── Exercise2_RESTfulWebService/       ← Days 27, 28 & 29
 │   └── jwt-handson/
-│       └── Exercise5_JWTAuthentication/       ← Day 30
-└── Week5/
+├── Week4/
+│   └── microservices-handson/
+├── Week5/
+│   └── react-handson/
+│       ├── myfirstreact/           ← Exercise 1: First React App
+│       ├── StudentApp/             ← Exercise 2: Class Components
+│       ├── scorecalculatorapp/     ← Exercise 3: Props & Functional Components
+│       ├── blogapp/                ← Assignment 4: Lifecycle Hooks
+│       └── cohortapp/              ← Assignment 5: CSS Modules
+└── Week6/
     └── react-handson/
-        └── myfirstreact/                      ← ReactJS Part 1 – Exercise 1
+        ├── cricketapp/             ← Assignment 9: ES6 Features
+        ├── officespacerentalapp/   ← JSX Elements & Attributes
+        ├── eventexamplesapp/       ← Event Handling
+        ├── ticketbookingapp/       ← Conditional Rendering (Login/Logout)
+        └── bloggerapp/             ← 6 Conditional Rendering Methods
 ```
 
 ---
@@ -139,13 +138,6 @@ cognizant_nuture/
 | 25 | Create a Spring Web Project using Maven | [pom.xml](Week3/spring-rest-handson/Exercise1_SpringWebMaven/pom.xml) |
 | 26 | Spring Core – Load Country from Spring XML Config | [spring-config.xml](Week3/spring-rest-handson/Exercise1_SpringWebMaven/src/main/resources/spring-config.xml) |
 
-**Key Concepts Covered:**
-- Spring Boot 3 Maven project setup
-- `spring-boot-starter-web` dependency
-- Spring XML-based bean configuration (`spring-config.xml`)
-- `ClassPathXmlApplicationContext` to load beans
-- Country POJO wired via setter injection in XML
-
 #### Exercise 2 – RESTful Web Services (Days 27, 28 & 29)
 
 | Day | Task | Key File |
@@ -198,63 +190,12 @@ cognizant_nuture/
 | GET | `/api/secure/profile` | ✅ | Returns authenticated user profile |
 | GET | `/api/secure/dashboard` | ✅ | Protected dashboard |
 
-**Test Credentials:**
-| Username | Password | Role |
-|----------|----------|------|
-| `admin` | `admin123` | ROLE_ADMIN |
-| `user` | `user123` | ROLE_USER |
-| `vikas` | `password` | ROLE_USER |
-
 **Key Concepts Covered:**
 - JSON Web Token (JWT) structure: Header.Payload.Signature
 - HMAC-SHA256 signing with JJWT 0.12
 - Spring Security filter chain customisation
 - `OncePerRequestFilter` for JWT validation
 - Stateless REST API (no server-side sessions)
-- `AuthenticationManager` for credential validation
-
----
-
-## 🛠️ How to Run
-
-### Spring REST Service (Week 3 – Exercises 1 & 2)
-```bash
-cd Week3/spring-rest-handson/Exercise1_SpringWebMaven
-mvn spring-boot:run
-# Server starts on: http://localhost:8080
-# Test: curl http://localhost:8080/api/hello
-# Test: curl http://localhost:8080/api/country/IN
-```
-
-### JWT Authentication Service (Week 3 – Exercise 5)
-```bash
-cd Week3/jwt-handson/Exercise5_JWTAuthentication
-mvn spring-boot:run
-# Server starts on: http://localhost:8081
-
-# Step 1 – Login and get JWT
-curl -X POST http://localhost:8081/auth/login \
-     -H "Content-Type: application/json" \
-     -d '{"username":"admin","password":"admin123"}'
-
-# Step 2 – Use JWT to access protected endpoint
-curl http://localhost:8081/api/secure/hello \
-     -H "Authorization: Bearer <token>"
-```
-
-### Java Programs (Week 1)
-```bash
-# Compile and run any Java exercise
-cd Week1/Design_Patterns_and_Principles/Exercise1_SingletonPattern
-javac SingletonPatternDemo.java
-java SingletonPatternDemo
-```
-
-### PL/SQL Scripts (Week 1)
-```sql
--- Connect to Oracle DB and run:
-@Week1/PLSQL_Exercises/Exercise1_ControlStructures/ControlStructures.sql
-```
 
 ---
 
@@ -288,113 +229,223 @@ Client
         └──────────────────────┘
 ```
 
-### 📦 Microservices (Exercise 2)
+### 📦 Microservices
 
-| Service | Port | Key File | Purpose |
-|---------|------|----------|---------|
-| **eureka-server** | 8761 | [EurekaServerApplication.java](Week4/microservices-handson/eureka-server/src/main/java/com/cognizant/eurekaserver/EurekaServerApplication.java) | Service registry & discovery |
-| **account-service** | 8081 | [AccountController.java](Week4/microservices-handson/account-service/src/main/java/com/cognizant/accountservice/controller/AccountController.java) | Bank account CRUD microservice |
-| **loan-service** | 8082 | [LoanController.java](Week4/microservices-handson/loan-service/src/main/java/com/cognizant/loanservice/controller/LoanController.java) | Loan management microservice |
-| **api-gateway** | 8080 | [application.yml](Week4/microservices-handson/api-gateway/src/main/resources/application.yml) | Single entry point, routes + LB |
-
-### 🌐 API Gateway Routes
-
-| Gateway URL | Routes To | Description |
-|-------------|-----------|-------------|
-| `GET  /account-service/api/accounts` | account-service | All accounts |
-| `GET  /account-service/api/accounts/{id}` | account-service | Account by ID |
-| `GET  /account-service/api/accounts/customer/{id}` | account-service | Accounts by customer |
-| `POST /account-service/api/accounts` | account-service | Create account |
-| `GET  /loan-service/api/loans` | loan-service | All loans |
-| `GET  /loan-service/api/loans/customer/{id}` | loan-service | Loans by customer |
-| `POST /loan-service/api/loans` | loan-service | Apply for loan |
-| `PATCH /loan-service/api/loans/{id}/status` | loan-service | Update loan status |
+| Service | Port | Purpose |
+|---------|------|---------|
+| **eureka-server** | 8761 | Service registry & discovery |
+| **account-service** | 8081 | Bank account CRUD microservice |
+| **loan-service** | 8082 | Loan management microservice |
+| **api-gateway** | 8080 | Single entry point, routes + LB |
 
 **Key Concepts Covered:**
 - `@EnableEurekaServer` – Eureka service registry
-- `@EnableDiscoveryClient` – microservice registration with Eureka
-- Spring Cloud Gateway routing with `lb://` (load-balanced URIs)
-- `StripPrefix` filter to remove gateway prefix before forwarding
-- `GlobalFilter` – custom request/response logging filter
-- Spring Data JPA with H2 in-memory DB per microservice
+- `@EnableDiscoveryClient` – microservice registration
+- Spring Cloud Gateway routing with `lb://` load-balanced URIs
+- `StripPrefix` filter for gateway prefix removal
+- `GlobalFilter` – custom request/response logging
 - Service-level isolation (separate DB per service)
 
-### 🛠️ How to Run (Week 4)
+---
+
+## 🗂️ Week 5 – ReactJS (Part 1)
+
+### ⚛️ React Hands-On Apps
+
+#### 🔹 Exercise 1 – `myfirstreact` — First React App
+- Set up React environment using `create-react-app`
+- JSX syntax, components, Virtual DOM concept
+- `npm start` development server
+
+#### 🔹 Exercise 2 – `StudentApp` — Class Components
+- Class-based components with state
+- Home, About, Contact component pages
+- Props passing between components
+
+#### 🔹 Exercise 3 – `scorecalculatorapp` — Props & Functional Components
+- Functional components with props
+- `CalculateScore` component
+- Component-level CSS styling
+
+#### 🔹 Assignment 4 – `blogapp` — Component Lifecycle Hooks
+
+| File | Purpose |
+|------|---------|
+| [Post.js](Week5/react-handson/blogapp/src/Post.js) | Functional component — displays single blog post |
+| [Posts.js](Week5/react-handson/blogapp/src/Posts.js) | Class component with lifecycle hooks |
+
+**Lifecycle Hooks Implemented:**
+- `componentDidMount()` — fetches posts from JSONPlaceholder API after mount
+- `componentDidCatch(error, info)` — Error Boundary catches child errors
+
+**Lifecycle Sequence:** Constructor → render() → componentDidMount() → setState → render()
+
+#### 🔹 Assignment 5 – `cohortapp` — CSS Modules
+
+| File | Purpose |
+|------|---------|
+| [CohortDetails.module.css](Week5/react-handson/cohortapp/src/CohortDetails.module.css) | CSS Module with `.box` class + `dt` tag selector |
+| [CohortDetails.js](Week5/react-handson/cohortapp/src/CohortDetails.js) | Class component — imports & applies CSS Module |
+
+**CSS Module Features:**
+- `.box` — width:300px, inline-block, margin:10px, padding:10px 20px, 1px solid border, border-radius:10px
+- `dt` tag selector — font-weight: 500
+- Inline style: `<h3>` color green for `Ongoing`, blue for all other statuses
+
+### 🛠️ How to Run (Week 5)
 ```bash
-# Step 1 – Start Eureka Server FIRST
-cd Week4/microservices-handson/eureka-server
-mvn spring-boot:run
-# Dashboard: http://localhost:8761
-
-# Step 2 – Start Account Service
-cd Week4/microservices-handson/account-service
-mvn spring-boot:run
-
-# Step 3 – Start Loan Service
-cd Week4/microservices-handson/loan-service
-mvn spring-boot:run
-
-# Step 4 – Start API Gateway
-cd Week4/microservices-handson/api-gateway
-mvn spring-boot:run
-
-# Test via Gateway:
-curl http://localhost:8080/account-service/api/accounts
-curl http://localhost:8080/loan-service/api/loans
-curl http://localhost:8080/loan-service/api/loans/customer/1
+cd Week5/react-handson/<app-name>
+npm install
+npm start
+# App runs on: http://localhost:3000
 ```
 
 ---
 
-## 🗂️ Week 5 – ReactJS Part 1
+## 🗂️ Week 6 – ReactJS (Part 2) – ES6, Events & Conditional Rendering
 
-### ⚛️ React Hands-On (react-handson)
+### ⚛️ React Apps
 
-#### Exercise 1 – Create Your First React App (myfirstreact)
+#### 🔹 Assignment 9 – `cricketapp` — ES6 Features in React
 
-**Objectives:**
-- Define SPA (Single-Page Application) and its benefits
-- Understand how React works and its Virtual DOM
-- Identify differences between SPA and MPA
-- Explain Pros & Cons of Single-Page Applications
-- Set up a React development environment
-- Use `create-react-app` to scaffold a project
+| Component | File | ES6 Feature |
+|-----------|------|-------------|
+| ListofPlayers | [ListofPlayers.js](Week6/react-handson/cricketapp/src/ListofPlayers.js) | `map()` to display 11 players, `filter()` arrow function for scores ≤ 70 |
+| IndianPlayers | [IndianPlayers.js](Week6/react-handson/cricketapp/src/IndianPlayers.js) | Array destructuring for Odd/Even players, Spread `[...arr1, ...arr2]` to merge arrays |
+| App | [App.js](Week6/react-handson/cricketapp/src/App.js) | Simple `if/else` flag variable — `flag=true` → ListofPlayers, `flag=false` → IndianPlayers |
 
-| File | Purpose |
-|------|---------|
-| [App.js](Week5/react-handson/myfirstreact/src/App.js) | Main React component – renders welcome heading |
-| [index.js](Week5/react-handson/myfirstreact/src/index.js) | React entry point – mounts App to DOM |
-| [App.css](Week5/react-handson/myfirstreact/src/App.css) | Component-level styles |
+**ES6 Concepts Covered:**
+- `map()` — render list of players
+- Arrow function `filter()` — filter players with score ≤ 70
+- Array **Destructuring** — `const [first, second, ...] = players`
+- **Spread / Merge** — `[...T20players, ...RanjiTrophyPlayers]`
+- `if/else` flag-based conditional rendering
+
+---
+
+#### 🔹 `officespacerentalapp` — JSX Elements, Attributes & Objects
+
+| Concept | Implementation |
+|---------|---------------|
+| JSX Element | `<h1>Office Space, at Affordable Range</h1>` |
+| JSX Attribute | `<img src={officeImg} alt="Office Space" />` |
+| Object | Single office object `{ name, rent, address }` |
+| List + Loop | `officeList.map()` renders 5 office cards |
+| Conditional CSS | Rent color **red** if `< 60000`, **green** if `> 60000` |
+
+---
+
+#### 🔹 `eventexamplesapp` — React Event Handling
+
+| Button | Event Handler | Behaviour |
+|--------|--------------|-----------|
+| **Increment** | `handleIncrement()` | Calls **2 methods**: `increment()` + `sayHello()` → alert "Hello: Member!" |
+| **Decrement** | `decrement()` | Decreases counter state |
+| **Say welcome** | `sayWelcome('welcome')` | Passes argument to function → alert "welcome" |
+| **Click on me** | `handleClick(e)` | Synthetic event `onClick` → alert "I was clicked" |
+
+**CurrencyConvertor Component:**
+- Controlled form with `onChange` → `handleChange`
+- `onSubmit` → `handleSubmit` converts INR to Euro (amount × 80)
+- Alert: `"Converting to: Euro Amount is 6400"`
 
 **Key Concepts Covered:**
-- `create-react-app` project scaffolding
-- JSX syntax and React components
-- Single-Page Application (SPA) architecture
-- Virtual DOM concept
-- React's unidirectional data flow
-- `npm start` development server
+- Multiple methods invoked from single event handler
+- Passing arguments via arrow functions in JSX
+- Synthetic events in React
+- Controlled form components (`value` + `onChange`)
+- `handleSubmit` with `e.preventDefault()`
 
-### 🛠️ How to Run (Week 5)
+---
+
+#### 🔹 `ticketbookingapp` — Conditional Rendering (Login/Logout)
+
+| State | Component Shown | Description |
+|-------|----------------|-------------|
+| `isLoggedIn = false` | [GuestPage.js](Week6/react-handson/ticketbookingapp/src/GuestPage.js) | "Please sign up." + Login button + Flight details table |
+| `isLoggedIn = true` | [UserPage.js](Week6/react-handson/ticketbookingapp/src/UserPage.js) | "Welcome back" + Logout button + Ticket booking form |
+
+**Logic in App.js:**
+```js
+if (isLoggedIn) {
+  page = <UserPage onLogout={this.handleLogout} />;
+} else {
+  page = <GuestPage onLogin={this.handleLogin} />;
+}
+```
+
+---
+
+#### 🔹 `bloggerapp` — 6 Conditional Rendering Methods
+
+| # | Method | Component | Description |
+|---|--------|-----------|-------------|
+| 1 | **`if / else`** | [CourseDetails.js](Week6/react-handson/bloggerapp/src/CourseDetails.js) | Skip inactive courses unless `showAll` flag is true |
+| 2 | **Ternary `? :`** | [BlogDetails.js](Week6/react-handson/bloggerapp/src/BlogDetails.js) | Show/hide blogs, style drafts, fallback author name |
+| 3 | **`&&` Short-Circuit** | [BookDetails.js](Week6/react-handson/bloggerapp/src/BookDetails.js) | Show price & "Out of Stock" badge only when applicable |
+| 4 | **`switch` statement** | [App.js](Week6/react-handson/bloggerapp/src/App.js) | Tab navigation — All / Courses / Books / Blogs |
+| 5 | **Element Variable** | [CourseDetails.js](Week6/react-handson/bloggerapp/src/CourseDetails.js) | Store JSX in `let heading` variable before render |
+| 6 | **IIFE** `(()=>{})()` | [BookDetails.js](Week6/react-handson/bloggerapp/src/BookDetails.js) | Inline self-invoking function inside JSX |
+
+**3 Components:**
+- `CourseDetails` — Angular, React courses with date
+- `BookDetails` — Master React, Deep Dive Angular, Mongo Essentials with price
+- `BlogDetails` — React Learning, Installation blog posts with author & body
+
+### 🛠️ How to Run (Week 6)
 ```bash
-# Navigate to the myfirstreact app
-cd Week5/react-handson/myfirstreact
-
-# Install dependencies (if not already installed)
+cd Week6/react-handson/<app-name>
 npm install
-
-# Start the development server
 npm start
 # App runs on: http://localhost:3000
-# Displays: "Welcome to the first session of React"
+```
+
+---
+
+## 🛠️ How to Run – Spring Apps
+
+### Spring REST Service (Week 3)
+```bash
+cd Week3/spring-rest-handson/Exercise2_RESTfulWebService
+mvn spring-boot:run
+# Server: http://localhost:8080
+# Test: curl http://localhost:8080/api/country/IN
+```
+
+### JWT Authentication (Week 3)
+```bash
+cd Week3/jwt-handson/Exercise5_JWTAuthentication
+mvn spring-boot:run
+# Step 1 – Login
+curl -X POST http://localhost:8081/auth/login \
+     -H "Content-Type: application/json" \
+     -d '{"username":"admin","password":"admin123"}'
+# Step 2 – Use JWT
+curl http://localhost:8081/api/secure/hello \
+     -H "Authorization: Bearer <token>"
+```
+
+### Microservices (Week 4)
+```bash
+# Start in order:
+cd Week4/microservices-handson/eureka-server && mvn spring-boot:run   # port 8761
+cd Week4/microservices-handson/account-service && mvn spring-boot:run # port 8081
+cd Week4/microservices-handson/loan-service && mvn spring-boot:run    # port 8082
+cd Week4/microservices-handson/api-gateway && mvn spring-boot:run     # port 8080
+# Test: curl http://localhost:8080/account-service/api/accounts
 ```
 
 ---
 
 ## 📌 Program Details
 
-- **Skills Covered:** Design Patterns, Data Structures & Algorithms, PL/SQL, Spring Core, Spring Data JPA, Spring REST, JWT Security, Microservices, Spring Cloud, ReactJS
-- **Language:** Java 17 (Spring Boot 3 + Spring Cloud 2023), Oracle PL/SQL, JavaScript (React 18)
-- **Paradigms:** OOP, REST, IoC, Stateless Authentication, Microservices Architecture, SPA (Single-Page Application)
+| Item | Detail |
+|------|--------|
+| **Skills Covered** | Design Patterns, DSA, PL/SQL, Spring Core, Spring Data JPA, Spring REST, JWT, Microservices, Spring Cloud, ReactJS |
+| **Languages** | Java 17, Oracle PL/SQL, JavaScript (ES6+), JSX |
+| **Frameworks** | Spring Boot 3, Spring Cloud 2023, React 18 |
+| **Paradigms** | OOP, REST, IoC, Stateless Auth, Microservices, SPA |
+| **Tools** | Maven, npm, create-react-app, H2 DB, Eureka, JWT |
 
 ---
 
