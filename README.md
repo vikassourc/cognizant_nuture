@@ -2,7 +2,7 @@
 
 > **Trainee:** Vikas Srivastav
 > **Program:** Cognizant Digital Nurture – Full Stack Engineering (Java)
-> **Duration:** 6 Weeks
+> **Duration:** 7 Weeks
 
 ---
 
