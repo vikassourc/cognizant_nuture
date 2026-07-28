@@ -42,6 +42,15 @@ cognizant_nuture/
         ├── eventexamplesapp/       ← Event Handling
         ├── ticketbookingapp/       ← Conditional Rendering (Login/Logout)
         └── bloggerapp/             ← 6 Conditional Rendering Methods
+└── Week7/
+    ├── 1.Git-HOL/
+    ├── 2.Git-HOL/
+    ├── 3.Git-HOL/
+    ├── 4.Git-HOL/
+    ├── 5.Git-HOL/
+    └── Angular_HandsOn/
+        └── Vikas_Srivastav/
+            └── student-course-portal/ ← 10 Angular Hands-On Exercises
 ```
 
 ---
@@ -398,6 +407,33 @@ cd Week6/react-handson/<app-name>
 npm install
 npm start
 # App runs on: http://localhost:3000
+```
+
+---
+
+## 🗂️ Week 7 – Angular (Student Course Portal) & Git
+
+### 🅰️ Angular Hands-On Exercises
+
+| Part | Topic |
+|------|-------|
+| 1 | Project Initialization & Core Components |
+| 2 | Data Binding & Lifecycle Hooks |
+| 3 | Directives & Pipes |
+| 4 | Template-Driven Forms & Validation |
+| 5 | Reactive Forms & Custom Validators |
+| 6 | Services & Dependency Injection |
+| 7 | Routing & Lazy Loading |
+| 8 | HTTP Client & Interceptors |
+| 9 | State Management with NgRx |
+| 10 | Unit Testing |
+
+### 🛠️ How to Run (Week 7)
+```bash
+cd Week7/Angular_HandsOn/Vikas_Srivastav/student-course-portal
+npm install
+npm start
+# App runs on: http://localhost:4200
 ```
 
 ---
