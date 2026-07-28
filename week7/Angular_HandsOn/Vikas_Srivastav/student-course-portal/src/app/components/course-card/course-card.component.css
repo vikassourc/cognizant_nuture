@@ -1,1 +1,15 @@
-.course-card { border: 1px solid #ccc; padding: 10px; margin: 10px; border-radius: 4px; }
+.course-card { 
+  border: 1px solid #ccc; 
+  border-left-width: 5px;
+  padding: 10px; 
+  margin: 10px; 
+  border-radius: 4px; 
+  transition: all 0.3s ease;
+}
+.card--enrolled { background-color: #f0f8ff; }
+.card--full { font-weight: bold; }
+.expanded { min-height: 150px; }
+.badge { padding: 3px 6px; border-radius: 4px; color: white; font-size: 0.8rem; margin-bottom: 10px; display: inline-block; }
+.badge-success { background-color: green; }
+.badge-danger { background-color: red; }
+.badge-secondary { background-color: grey; }

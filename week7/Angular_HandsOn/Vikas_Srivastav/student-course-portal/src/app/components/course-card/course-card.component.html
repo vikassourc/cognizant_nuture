@@ -1,5 +1,17 @@
-<div class="course-card">
+<div class="course-card" [ngClass]="cardClasses" [ngStyle]="{'border-left-color': course.gradeStatus === 'passed' ? 'green' : (course.gradeStatus === 'failed' ? 'red' : 'grey')}" appHighlight="lightblue">
   <h3>{{ course.name }} ({{ course.code }})</h3>
-  <p>Credits: {{ course.credits }}</p>
+  <p>{{ course.credits | creditLabel }}</p>
+  
+  <ng-container [ngSwitch]="course.gradeStatus">
+    <span *ngSwitchCase="'passed'" class="badge badge-success">Passed</span>
+    <span *ngSwitchCase="'failed'" class="badge badge-danger">Failed</span>
+    <span *ngSwitchDefault class="badge badge-secondary">Pending</span>
+  </ng-container>
+
   <button (click)="enrollRequested.emit(course.id)">Enroll</button>
+  <button (click)="isExpanded = !isExpanded">Show Details</button>
+  
+  <div *ngIf="isExpanded" class="details">
+    <p>Additional details for {{ course.name }}...</p>
+  </div>
 </div>
